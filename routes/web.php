@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('backend/{any?}', function () {
-    return view('backend');
+Route::get('admin/{any?}', function () {
+    return view('admin');
 })->where('any', '(.*)');
