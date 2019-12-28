@@ -38,4 +38,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     *  Login username for oauth server.
+     *
+     * @return app\User
+     */
+    public function findForPassport(string $username)
+    {
+        return $this->orWhere('email', $username)
+            ->orWhere('staff_code', $username)
+            ->orWhere('phone', $username)
+            ->whereNotNull('email_verified_at')
+            ->whereNull('deleted_at')
+            ->first();
+    }
 }

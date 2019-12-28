@@ -19,8 +19,8 @@ return [
 
     'default_client' => [
         'grant_type' => 'password',
-        'client_id' => env('PASSPORT_CLIENT_ID', 2),
-        'client_secret' => env('PASSPORT_CLIENT_SECRET', 'SBp3xuXKHwbntlnfKfT1V4v5g8J9BBlCIvmasHZB'),
+        'client_id' => env('PASSPORT_CLIENT_ID', 1),
+        'client_secret' => env('PASSPORT_CLIENT_SECRET', 'deO2gwtq35kzs0rTgQwX7SGLSmvb5EliHB3Z7Uj7'),
         'scope' => '*'
     ],
 ];
