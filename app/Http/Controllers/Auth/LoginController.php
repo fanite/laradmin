@@ -40,7 +40,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:api')->except('logout');
     }
 
     /**
@@ -68,12 +68,12 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $respone = $this->getAccessTokenProxy($request);
-        return 500 === $respone->getStatusCode() ? $respone :
+        return 200 === $respone->getStatusCode() ?
             new AccessTokenResource(
                 collect(
                     transform($respone->getContent(), 'json_decode')
                 )->put('user', $user)
-            );
+            ) : $respone;
     }
 
     /**
@@ -116,6 +116,32 @@ class LoginController extends Controller
             $password = $request->get('password');
             return $this->guard()->attempt([$field => $account, 'password' => $password], $request->filled('remember'));
         });
+    }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $token = $request->user()->token();
+
+        $token->revoke();
+
+        return $this->loggedOut($request) ?: redirect('admin/login');
+    }
+
+    /**
+     * The user has logged out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return mixed
+     */
+    protected function loggedOut(Request $request)
+    {
+        //
     }
 
     /**

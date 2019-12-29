@@ -1,1 +1,13 @@
-//
+// 公共变量
+@import "./__variables.scss";
+
+// 主题
+@import "./themes/theme-plain.scss";
+
+// element-ui
+@import "./elem.scss";
+
+@import "~animate.css/animate.css";
+
+// base
+@import "./base.scss";
