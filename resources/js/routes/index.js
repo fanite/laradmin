@@ -9,7 +9,7 @@ const routes = [
     {
         path: "/login",
         name: "login",
-        component: component("auths/Login.vue"),
+        component: component("users/Login.vue"),
         meta: {
             title: "欢迎登陆"
         }
@@ -17,7 +17,7 @@ const routes = [
     {
         path: "/register",
         name: "register",
-        component: component("auths/Register.vue"),
+        component: component("users/Register.vue"),
         meta: {
             title: "用户注册"
         }
@@ -25,7 +25,7 @@ const routes = [
     {
         path: "/reset-password",
         name: "forgot password",
-        component: component("auths/ResetPassword.vue"),
+        component: component("users/ResetPassword.vue"),
         meta: {
             title: "重置密码"
         }
@@ -67,13 +67,13 @@ const routes = [
 
 const router = new VueRouter({
     mode: "history",
-    base: `admin`,
+    base: "admin",
     routes
 });
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (false || !loggedIn()) {
+        if (!loggedIn()) {
             // next({
             //   name: "login",
             //   query: { redirect: router.options.base + to.fullPath }

@@ -3,6 +3,11 @@ import Lockr from "./lockr";
 import Qs from "qs";
 import { HttpErrorNotification } from "./helper";
 import router from "@/routes";
+import store from "@/stores";
+
+function switchLoading() {
+    store.commit("admin/switchLoading");
+}
 
 const instance = Axios.create({
     baseURL: "/api",
@@ -13,6 +18,7 @@ const instance = Axios.create({
 // 添加请求拦截器
 instance.interceptors.request.use(
     function(config) {
+        switchLoading();
         const accessToken = Lockr.get("access_token");
         if (accessToken) {
             const tokenType = Lockr.get("token_type");
@@ -28,6 +34,7 @@ instance.interceptors.request.use(
 // 添加响应拦截器
 instance.interceptors.response.use(
     function(response) {
+        switchLoading();
         return response;
     },
     function(error) {
