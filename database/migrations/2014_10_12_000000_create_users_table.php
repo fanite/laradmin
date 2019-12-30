@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->text('avatar')->nullable(true)->comment('头像地址');
             $table->string('password');
             $table->ipAddress('last_ip')->comment('最后登录的IP地址');
-            $table->boolean('is_admin')->comment('超级账户');
+            $table->boolean('is_admin')->default(false)->comment('超级账户');
             $table->string('user_type', 100)->comment('账户类型');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

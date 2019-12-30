@@ -40,13 +40,15 @@
             :loading="loading"
           >登 录</el-button>
         </el-form-item>
-
-        <el-link type="info" :underline="false" href="/admin/reset-password">忘记密码？</el-link>
-
-        <el-link type="primary" :underline="false" href="/admin/register" class="register">
-          注册
-          <i class="el-icon-d-arrow-right"></i>
-        </el-link>
+        <router-link to="reset-password" class="el-link el-link--info">
+          <span class="el-link--inner">忘记密码？</span>
+        </router-link>
+        <router-link to="register" class="register el-link el-link--primary">
+          <span class="el-link--inner">
+            注册
+            <i class="el-icon-d-arrow-right"></i>
+          </span>
+        </router-link>
       </el-form>
     </div>
     <copy-right class="copy-right-fixed" />
@@ -78,7 +80,7 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           this.loading = true;
-          this.$http.post("/backend/login", this.form).then(response => {
+          this.$http.post("/login", this.form).then(response => {
             storeAuthToken(response.data);
           });
           this.loading = false;

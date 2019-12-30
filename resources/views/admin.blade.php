@@ -17,7 +17,7 @@
     </noscript>
     <div id="app" v-cloak></div>
     <script>
-        window.admin = 'admin'
+        window.admin = @json($config)
     </script>
     <script src="{{ mix('/js/app.js') }}" defer></script>
 </body>
