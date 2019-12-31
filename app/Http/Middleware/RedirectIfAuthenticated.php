@@ -19,7 +19,10 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            if (!$request->expectsJson()) {
+                return redirect(RouteServiceProvider::HOME);
+            }
+            return route('http://127.0.0.1:8000/admin');
         }
 
         return $next($request);

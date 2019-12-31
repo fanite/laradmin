@@ -6,8 +6,8 @@ export default {
     },
     getters: {},
     mutations: {
-        switchLoading(state) {
-            state.loading = !state.loading;
+        switchLoading(state, status) {
+            state.loading = status;
         },
         setUser(state, payload) {
             state.user = payload;

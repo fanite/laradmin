@@ -3,6 +3,7 @@ import { size, isObject, forIn } from "lodash";
 import { Notification } from "element-ui";
 import router from "@/routes";
 import Qs from "qs";
+import crypto from "crypto-browserify";
 
 export function component(path) {
     return () => import(`@/views/${path}`).then(m => m.default || m);
@@ -40,4 +41,16 @@ export function redirect(path, options) {
 
 export function setTitle(title) {
     document.title = title ? `${title} | ${admin.name}` : `${admin.name}`;
+}
+
+export function encrypt(data) {
+    var cipher = crypto.createCipher("aes-256-cbc", admin.secret);
+    var enc = cipher.update(data, "utf8", "hex");
+    return (enc += cipher.final("hex"));
+}
+
+export function decrypt(data) {
+    var decipher = crypto.createDecipher("aes-256-cbc", admin.secret);
+    var dec = decipher.update(data, "hex", "utf8");
+    return (dec += decipher.final("utf8"));
 }

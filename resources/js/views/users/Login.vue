@@ -70,6 +70,7 @@
 <script>
 import CopyRight from "@/views/layouts/CopyRight";
 import BackgroundImg from "@images/background.01.jpg";
+import { encrypt, decrypt, storeAuthToken } from "@/lib/helper";
 export default {
     components: { CopyRight },
     data() {
@@ -92,7 +93,7 @@ export default {
             this.$refs[formName].validate(valid => {
                 if (valid) {
                     this.$http.post("/login", this.form).then(response => {
-                        storeAuthToken(response.data);
+                        storeAuthToken(response.data.data);
                     });
                 }
             });
@@ -100,9 +101,6 @@ export default {
         resetForm(formName) {
             this.$refs[formName].resetFields();
         }
-    },
-    mounted: function() {
-        console.log(this.$store);
     }
 };
 </script>
