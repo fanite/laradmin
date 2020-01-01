@@ -13,4 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('{any?}', 'IndexController@index')->where('any', '(.*)');
+Route::get('login', 'AdminController@index');
+
+Route::get('register', 'AdminController@index');
+
+Route::get('reset-password', 'AdminController@index');
+
+Route::get('admin/{any?}', 'AdminController@index')->where('any', '(.*)');
