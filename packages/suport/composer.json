@@ -1,0 +1,22 @@
+{
+    "name": "autodev/suport",
+    "description": "助手包",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Fanite",
+            "email": "bellong@vip.qq.com"
+        }
+    ],
+    "require": {},
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Autodev\\Suport\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}

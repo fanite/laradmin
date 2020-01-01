@@ -2,6 +2,8 @@ import Vue from "vue";
 import { component, setTitle, loggedIn } from "@/lib/helper";
 import Layout from "@/views/layouts/Layout.vue";
 import VueRouter from "vue-router";
+import requireAuthenticated from "./middlewares/requireAuthenticated";
+import ifLogin from "./middlewares/ifLogin";
 
 Vue.use(VueRouter);
 
@@ -10,6 +12,7 @@ const routes = [
         path: "/login",
         name: "login",
         component: component("users/Login.vue"),
+        beforeEnter: ifLogin,
         meta: {
             title: "欢迎登陆"
         }
@@ -67,23 +70,11 @@ const routes = [
 
 const router = new VueRouter({
     mode: "history",
-    base: "admin",
     routes
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (!loggedIn()) {
-            next({
-                name: "login",
-                query: { redirect: router.options.base + to.fullPath }
-            });
-            next();
-        } else {
-            next();
-        }
-    }
-    next();
+    requireAuthenticated(to, from, next);
 });
 
 router.afterEach((to, from) => {

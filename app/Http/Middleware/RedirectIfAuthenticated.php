@@ -22,7 +22,7 @@ class RedirectIfAuthenticated
             if (!$request->expectsJson()) {
                 return redirect(RouteServiceProvider::HOME);
             }
-            return route('http://127.0.0.1:8000/admin');
+            return xhr_redirect(RouteServiceProvider::HOME);
         }
 
         return $next($request);

@@ -4,8 +4,33 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e12ed1ae3dd15b21c7a3521623d9d37",
+    "content-hash": "034c8b6c58b1e7ebfcb70ec178001d02",
     "packages": [
+        {
+            "name": "autodev/suport",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./packages/suport",
+                "reference": "f69cded58be810563b8a736112261eee98e18afd"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Autodev\\Suport\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Fanite",
+                    "email": "bellong@vip.qq.com"
+                }
+            ],
+            "description": "助手包"
+        },
         {
             "name": "defuse/php-encryption",
             "version": "v2.2.1",
@@ -4333,6 +4358,7 @@
                 "psr",
                 "psr-7"
             ],
+            "abandoned": "laminas/laminas-diactoros",
             "time": "2019-11-13T19:16:13+00:00"
         }
     ],
@@ -6545,7 +6571,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "autodev/suport": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

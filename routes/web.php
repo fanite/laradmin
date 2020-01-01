@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('admin/{any?}', 'AdminController@index')->where('any', '(.*)');
+Route::get('{any?}', 'IndexController@index')->where('any', '(.*)');

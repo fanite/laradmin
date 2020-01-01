@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 
-class AdminController extends Controller
+class IndexController extends Controller
 {
     public function index()
     {

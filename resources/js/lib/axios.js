@@ -10,9 +10,10 @@ function switchLoading(status) {
 }
 
 function ifRedirect(respone) {
-    if (respone && respone.data && respone.data.redirect) {
+    if (respone.data.redirect) {
         window.location = respone.data.redirect;
     }
+    throw `正在跳转到${respone.data.redirect}`;
 }
 
 Axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
@@ -49,13 +50,13 @@ instance.interceptors.response.use(
     function(error) {
         const resp = error.response;
 
-        ifRedirect(resp);
-
         if (resp) {
-            HttpErrorNotification(resp.status, resp.data.message);
             if (resp.status === 401) {
                 router.replace("login");
+            } else if (resp.status === 302) {
+                ifRedirect(resp);
             }
+            HttpErrorNotification(resp.status, resp.data.message);
         } else {
             HttpErrorNotification("😅", error.message);
         }
