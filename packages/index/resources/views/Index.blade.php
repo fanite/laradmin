@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/vendor/backend/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <link rel="shortcut icon" href="/vendor/index/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ mix('/css/app.css', 'vendor/index') }}">
     <title>😍 Loading...</title>
 </head>
 
@@ -16,10 +16,7 @@
             continue.</strong>
     </noscript>
     <div id="app" v-cloak></div>
-    <script>
-        window.admin = @json($config)
-    </script>
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+    <script src="{{ mix('/js/app.js', 'vendor/index') }}" defer></script>
 </body>
 
 </html>

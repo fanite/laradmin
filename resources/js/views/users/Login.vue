@@ -94,6 +94,11 @@ export default {
                 if (valid) {
                     this.$http.post("/login", this.form).then(response => {
                         storeAuthToken(response.data.data);
+                        if (this.$route.query.redirect) {
+                            location.href = this.$route.query.redirect;
+                        } else {
+                            this.$router.push("index");
+                        }
                     });
                 }
             });

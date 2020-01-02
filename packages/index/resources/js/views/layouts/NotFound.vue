@@ -79,13 +79,6 @@
     </div>
 </template>
 
-<script>
-import Title from "@/mixins/title";
-export default {
-    mixins: [Title]
-};
-</script>
-
 <style lang="scss" scoped>
 .not-found {
     width: 100%;

@@ -9,5 +9,25 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Autodev\\Index\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Index\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Autodev\\Index\\IndexServiceProvider"
+            ],
+            "aliases": {
+                "Index\\Facade\\": "Autodev\\Index\\Facade"
+            }
+        }
+    }
 }

@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "034c8b6c58b1e7ebfcb70ec178001d02",
+    "content-hash": "ebab6a49f974f33194f8afb3937ba7c0",
     "packages": [
+        {
+            "name": "autodev/index",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./packages/index",
+                "reference": "04dc5a6b33765445b221e76f69bf81ed580ffcdb"
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Autodev\\Index\\IndexServiceProvider"
+                    ],
+                    "aliases": {
+                        "Index\\Facade\\": "Autodev\\Index\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Autodev\\Index\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Index\\Tests\\": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Fanite",
+                    "email": "bellong@vip.qq.com"
+                }
+            ],
+            "description": "网站首页"
+        },
         {
             "name": "autodev/suport",
             "version": "dev-master",
@@ -6572,6 +6609,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "autodev/index": 20,
         "autodev/suport": 20
     },
     "prefer-stable": true,

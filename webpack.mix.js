@@ -11,9 +11,11 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.js("resources/js/app.js", "public/js")
-    .sass("resources/sass/app.scss", "public/css")
-    .copy("resources/images", "../../public/vendor/backend/images")
+mix.setPublicPath("public/vendor/admin").setResourceRoot("/vendor/admin/");
+
+mix.js("resources/js/app.js", "js")
+    .sass("resources/sass/app.scss", "css")
+    .copy("resources/images", "public/vendor/admin/images")
     // fonts文件全部提取到public/fonts
     .webpackConfig({
         module: {

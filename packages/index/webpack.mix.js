@@ -11,7 +11,9 @@ let mix = require("laravel-mix");
  |
  */
 
-mix.setPublicPath("dist");
+mix.setPublicPath("dists");
+
+mix.setResourceRoot("/vendor/index/");
 
 mix.js("resources/js/app.js", "js").sass("resources/sass/app.scss", "css");
 
@@ -48,6 +50,11 @@ mix.webpackConfig({
 }).options({
     extractVueStyles: true
 });
+
+mix.copy("dists", "../../public/vendor/index").copy(
+    "resources/images",
+    "../../public/vendor/index/images"
+);
 
 // Full API
 // mix.js(src, output);

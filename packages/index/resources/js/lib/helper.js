@@ -40,7 +40,7 @@ export function redirect(path, options) {
 }
 
 export function setTitle(title) {
-    document.title = title ? `${title} | ${admin.name}` : `${admin.name}`;
+    document.title = title;
 }
 
 export function encrypt(data) {

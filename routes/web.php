@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('login', 'AdminController@index');
+Route::get('login', 'AdminController@index')->name('login');
 
-Route::get('register', 'AdminController@index');
+Route::get('register', 'AdminController@index')->name('register');
 
-Route::get('reset-password', 'AdminController@index');
+Route::get('reset-password', 'AdminController@index')->name('reset.password');
 
 Route::get('admin/{any?}', 'AdminController@index')->where('any', '(.*)');
