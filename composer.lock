@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/index",
-                "reference": "04dc5a6b33765445b221e76f69bf81ed580ffcdb"
+                "reference": "1fd68790e5fcca7d846aa1c8c1ce3ed15c3add53"
             },
             "type": "project",
             "extra": {

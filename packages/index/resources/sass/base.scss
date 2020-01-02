@@ -16,3 +16,30 @@ body,
     width: $--screen-width;
     margin: 0 auto;
 }
+
+.avatar {
+    display: block;
+    margin-bottom: 12px;
+}
+.user-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+.user-info {
+    color: #909399;
+    dt {
+        width: 78px;
+        float: left;
+        line-height: 32px;
+    }
+    dd {
+        margin: 0;
+        line-height: 32px;
+        border-bottom: 1px dotted #ccc7c7;
+        &:hover i {
+            color: red;
+            transform: scale(1.5);
+            transition: transform 0.4s;
+        }
+    }
+}
