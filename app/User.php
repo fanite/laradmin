@@ -54,4 +54,26 @@ class User extends Authenticatable
             ->whereNull('deleted_at')
             ->first();
     }
+
+    /**
+     * 获取用户头像地址
+     *
+     * @return string
+     */
+    public function avatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * 设置头像地址
+     *
+     * @return bool
+     */
+    public function setAvatar(string $avatarUrl)
+    {
+        $this->avatar = $avatarUrl;
+
+        return $this->save();
+    }
 }

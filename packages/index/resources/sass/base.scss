@@ -12,6 +12,17 @@ body,
     display: none;
 }
 
+.default-scrollbar {
+    height: 100%;
+}
+.el-scrollbar__wrap.default-scrollbar__wrap {
+    overflow-x: hidden;
+}
+
+.main {
+    background-color: #e9eef3;
+}
+
 .header-menu {
     width: $--screen-width;
     margin: 0 auto;
@@ -36,10 +47,14 @@ body,
         margin: 0;
         line-height: 32px;
         border-bottom: 1px dotted #ccc7c7;
-        &:hover i {
-            color: red;
-            transform: scale(1.5);
-            transition: transform 0.4s;
+
+        &:hover {
+            color: #303133;
+            transition: color 0.4s;
+            i {
+                transform: scale(1.2);
+                transition: transform 0.4s;
+            }
         }
     }
 }

@@ -9,8 +9,6 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use function GuzzleHttp\json_decode;
-
 class LoginController extends Controller
 {
     /*
